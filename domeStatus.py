@@ -32,14 +32,14 @@ while True:
         except Exception as e:
             status=f'ERROR{e}'
             
-            current_date=datetime.now().strftime("%d%b%Y")
-            log_file_name=f"{current_date}DomeStatus.log"
-            log_file_path=os.path.join(log_folder,log_file_name)
-            timestramp=datetime.now().strftime("%Y-%m%d %H:%M:%S")
-            logentry=f"{timestramp}- Dome Status From File : {status} From OCS: {ocsDomeStatus}\n"
+        current_date=datetime.now().strftime("%d%b%Y")
+        log_file_name=f"{current_date}DomeStatus.log"
+        log_file_path=os.path.join(log_folder,log_file_name)
+        timestramp=datetime.now().strftime("%Y-%m%d %H:%M:%S")
+        logentry=f"{timestramp}- Dome Status From File : {status} From OCS: {ocsDomeStatus}\n"
 
-            with open(log_file_path,"a") as log_file:
-                log_file.write(logentry)
+        with open(log_file_path,"a") as log_file:
+            log_file.write(logentry)
     except Exception as fatal:
         print("FATAL",fatal)
         
