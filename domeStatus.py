@@ -30,8 +30,8 @@ while True:
             ocsDomeStatus=f'ERROR{e}'
 
         try:
-           tasker_res=requests.post(url,json={},timeout=15) #Request to 3002 Port
-           tasker_resData=res.json()
+           tasker_res=requests.post(tasker_url,json={},timeout=15) #Request to 3002 Port
+           tasker_resData=tasker_res.json()
            tasker_Health_Status=tasker_resData.get("result",{}).get("state",{})
            tasker_Running_Status=tasker_resData.get("result",{}).get("running",{})
         except Exception as e:
@@ -45,11 +45,14 @@ while True:
             
         current_date=datetime.now().strftime("%d%b%Y")
         log_file_name=f"{current_date}DomeStatus.log"
+        tasker_log_file_name=f"{current_date}TaskerStatus.log"
+
         log_file_path=os.path.join(log_folder,log_file_name)
+        tasker_log_file_path=os.path.join(tasker_log_file_path,tasker_log_file_name)
         timestramp=datetime.now().strftime("%Y-%m%d %H:%M:%S")
 
         logentry=f"{timestramp}- Dome Status From File : {tasker_Health_Status} From OCS: {ocsDomeStatus}\n" # Log Entry For Dome Status
-        tasker_logentry=f"{timestramp}- Tasker Track Status : {status} Tasker Running Status: {tasker_Running_Status}\n"
+        tasker_logentry=f"{timestramp}- Tasker Track Status : {status} Tasker Running Status: {tasker_Running_Status}\n" # Log Entry for Tasker Status
         with open(log_file_path,"a") as log_file:
             log_file.write(logentry)
 
