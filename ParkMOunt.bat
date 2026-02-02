@@ -23,17 +23,21 @@ echo OCS Upgrade Script Started >> %LOG_FILE%
 echo Date: %date% Time: %time% >> %LOG_FILE%
 echo ===================================================== >> %LOG_FILE%
 
+:: ===================== UPGRADE COMMAND ==================
+echo Running: uvx oscctl upgrade >> %LOG_FILE%
+uvx oscctl upgrade >> %LOG_FILE% 2>&1
+
+:: ===================== WAIT =============================
+echo Waiting 100 seconds... >> %LOG_FILE%
+timeout /t 60 /nobreak >> %LOG_FILE% 2>&1
+
 :: ===================== PARK MOUNT =======================
 echo Running: curl -X POST http://localhost:3001/rpc/mount_park -d '{}' | jq >> %LOG_FILE%
 curl -X POST http://localhost:3001/rpc/mount_park -d "{}" | jq >> %LOG_FILE% 2>&1
 
-:: ===================== WAIT =============================
-echo Waiting 100 seconds... >> %LOG_FILE%
-timeout /t 100 /nobreak >> %LOG_FILE% 2>&1
 
-:: ===================== UPGRADE COMMAND ==================
-echo Running: uvx oscctl upgrade >> %LOG_FILE%
-uvx oscctl upgrade >> %LOG_FILE% 2>&1
+
+
 
 :: ===================== END LOG ==========================
 echo ===================================================== >> %LOG_FILE%
