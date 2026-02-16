@@ -1,0 +1,6 @@
+curl -H "Content-Type: application/json" \
+-d '{"text":"🚀 Test from Rohit Server"}' \
+"https://digantararesearchandtechno.webhook.office.com/webhookb2/fbae535c-4681-4b87-9d05-2e83e1a225fe@19b8d39c-e1e0-451c-b197-f64db2701023/IncomingWebhook/cc848b5074b74f9995aacc7fa9e17274/c5fad0e5-ccc8-44ed-b36e-74166f975698/V2ZlV2npUkUA6LG4zkzqOyB9MFeLVWU_o4pvQdo8qRJmE1"
+
+
+https://digantararesearchandtechno.webhook.office.com/webhookb2/fbae535c-4681-4b87-9d05-2e83e1a225fe@19b8d39c-e1e0-451c-b197-f64db2701023/IncomingWebhook/cc848b5074b74f9995aacc7fa9e17274/c5fad0e5-ccc8-44ed-b36e-74166f975698/V2ZlV2npUkUA6LG4zkzqOyB9MFeLVWU_o4pvQdo8qRJmE1
